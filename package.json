@@ -1,0 +1,60 @@
+{
+  "name": "@lp-labs/history",
+  "version": "0.1.0",
+  "description": "Typed, bounded undo and redo history with synchronous transactions.",
+  "type": "module",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/esm/index.d.ts",
+        "default": "./dist/esm/index.js"
+      },
+      "require": {
+        "types": "./dist/cjs/index.d.ts",
+        "default": "./dist/cjs/index.js"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "typecheck": "npm run build && tsc -p tsconfig.test.json",
+    "build": "node scripts/build.mjs",
+    "test": "npm run build && node --test tests/*.test.mjs",
+    "prepack": "npm run typecheck && npm test"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Libin Prasanth",
+    "url": "https://www.linkedin.com/in/libinprasanth/"
+  },
+  "funding": {
+    "type": "paypal",
+    "url": "https://www.paypal.me/LibinPrasanth"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "keywords": [
+    "history",
+    "undo",
+    "redo",
+    "transaction",
+    "typescript"
+  ]
+}
